@@ -1,7 +1,7 @@
 {
   "name": "transduction",
   "version": "1.0.0",
-  "description": "[This article](https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d) introduced me to transducers.",
+  "description": "Learning about transducers",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon --exec 'npm run test'",
