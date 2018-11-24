@@ -40,4 +40,8 @@ const isChanging = (x,y) => y !== x
 Then I created a sibling of filter called deltaFiltering which returned the previous filtered value and passed into the isChanging predicate.
 
 
+# More tasks
 
+- To consider if the data structure is not an array but a tree
+- To consider getting an output which is tuple of { value: <val>, index: <index>}
+- To consder the input is a function generating an arbitrary number of values.
