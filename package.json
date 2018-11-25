@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon --exec 'npm run test'",
-    "test": "node task2.js"
+    "test": "node task4.js"
   },
   "author": "",
   "license": "ISC",

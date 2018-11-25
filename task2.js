@@ -41,5 +41,6 @@ assert.equal(result.toString(),[ 0, 7, 8, 9, 10 ].toString())
 
 module.exports = {
   isChanging,
-  deltaFiltering
+  deltaFiltering,
+  deltaxform
 };

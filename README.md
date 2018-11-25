@@ -39,6 +39,23 @@ const isChanging = (x,y) => y !== x
 
 Then I created a sibling of filter called deltaFiltering which returned the previous filtered value and passed into the isChanging predicate.
 
+# Task3.js
+
+One of the benefits of transducers is the ability to be agnostic of the reducing function.
+Rather than use concat to build up the output I found an example which demonstrates keep the reduction as a single javascript object.  The concat function is replaced with
+```
+function (result, input) {
+    result[input] = true;
+    return result;
+}
+```
+
+# Task4.js
+
+The problem domain I have been thinking about for transducers is to convert a stream of measurements into a stream of event where events are defined by some conditional logic.
+
+This task describes a way to acheive this.
+
 
 # More tasks
 
