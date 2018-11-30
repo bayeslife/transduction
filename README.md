@@ -54,7 +54,48 @@ function (result, input) {
 
 The problem domain I have been thinking about for transducers is to convert a stream of measurements into a stream of event where events are defined by some conditional logic.
 
-This task describes a way to acheive this.
+A changing function is defined
+```
+const eventIsChanging = (x,y) => {
+  if(y==null){
+    return x
+  }else {
+    return y.value !== x.value
+  }
+}
+```
+
+And a form event function is defined
+```
+const formEvent = (x,i,y) => {
+  if(y==null)
+    return null
+  else
+    return {
+      start: y.time,
+      end: x.time,
+      value: y.value
+    }
+}
+```
+
+and we can composed these into the pipeline as
+```
+const deltaxform = compose(
+  indexMapping(eventIsGreaterThan(6)),
+  deltaFiltering(eventIsChanging),
+  indexMapping(formEvent),
+  filtering(notNull)
+);
+```
+
+Now the output will be a set of changes over time.
+
+
+# Task 5.js
+
+The next challenge is to process a stream of asynchronous content.
+
 
 
 # More tasks

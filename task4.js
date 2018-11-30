@@ -62,5 +62,9 @@ assert.equal(result.toString(),
   .toString())
 
 module.exports = {
-
+  notNull,
+  eventIsGreaterThan,
+  eventIsChanging,
+  formEvent,
+  indexMapping
 };
