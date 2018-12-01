@@ -35,7 +35,7 @@ const deltaxform = compose(
   mapping(identity)
 );
 
-async function transduceGenerator(xf, rf, init, xs) {
+async function asyncTransduce(xf, rf, init, xs) {
   // call reduce on the data structure internally (abstract it away)
   // pass the rf to the composed transformation
   // pass in the initial value
@@ -58,7 +58,7 @@ function concatLog(xs, val) {
 
 (async function(){
   const numsIt = makeAsyncRangeIterator(1,10)
-  var result = await transduceGenerator(deltaxform, concatLog, [], numsIt);
+  var result = await asyncTransduce(deltaxform, concatLog, [], numsIt);
   //console.log(result);
   assert.equal(result.toString(),[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ].toString())  
 })()

@@ -96,7 +96,27 @@ Now the output will be a set of changes over time.
 
 The next challenge is to process a stream of asynchronous content.
 
+This requires a change to the transduce function as it is necessary to await the next
+value from the generator.  Also we cannt use the javascript array.reduce to accumulate. 
+Instead we it is necessary to implement the accumulation.
 
+```
+async function asyncTransduce(xf, rf, init, xs) {
+  // call reduce on the data structure internally (abstract it away)
+  // pass the rf to the composed transformation
+  // pass in the initial value
+  var reducer = xf(rf)
+  var n = null
+  do {
+    n = await xs.next()
+    if(!n.done){
+      var v = n.value
+      init = reducer(init,v)
+    }
+  }while(!n.done)
+  return init
+}
+```
 
 # More tasks
 
